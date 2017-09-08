@@ -1,0 +1,54 @@
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
+/**********导航菜单***********/
+.page-nav ul{
+  padding: 0;
+  margin: 0;
+}
+.page-nav li{
+  list-style-type: none;
+  float: left;  
+  text-align: center;
+}
+.page-nav li:not(:first-child){
+  width:80px;
+}
+.logo{
+  margin-right:20px;
+}
+.logo img{
+  height: 25px;
+}
+a:hover{
+  text-decoration: none;
+}
+
+/**********顶部消息提示***********/
+.common-node-message{
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    z-index: 9999;
+    top:0;
+    left:0;
+    color:#fff;
+}
+.common-node-message-success {
+    background-color:#449d44;
+    border-bottom:1px solid #398439;
+}
+.common-node-message-error {
+    background-color:#c9302c;
+    border-bottom:1px solid #ac2925;
+}
