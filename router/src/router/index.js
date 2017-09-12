@@ -44,6 +44,9 @@ const Users = resolve => require(['@/views/users/userList.vue'], resolve)
 //ASIOX封装测试页面
 const Test = resolve => require(['@/views/Test.vue'], resolve)
 
+//Element-Ui的测试和使用
+const TElementUi = resolve => require(['@/views/testElementUi.vue'], resolve)
+
 Vue.use(Router)
 
 // export default new Router({
@@ -78,7 +81,8 @@ var router = new Router({
       ]
     },
     { path: '/users/list', name: 'Users', component: Users },
-    {path: '/test', name:"Test", component: Test}
+    {path: '/test', name:"Test", component: Test},
+    {path: '/testEUI', name: 'TestEUI', component: TElementUi}
   ]
 });
 

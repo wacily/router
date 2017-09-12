@@ -6,13 +6,23 @@ import router from './router'
 
 import store from './store/index'
 import vueResource from 'vue-resource'
-//import axios from 'axios'
+
+//引入iview
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
+//引入Element-Ui
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
 Vue.config.productionTip = false
 Vue.use(vueResource)
+
+//导入iview
 Vue.use(iView)
+
+//导入Element-Ui
+Vue.use(ElementUI)
 
 // //添加请求拦截器
 // axios.interceptors.request.use(

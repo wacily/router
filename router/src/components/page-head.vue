@@ -27,7 +27,8 @@ export default {
         {name:"添加数据", url:"/add"},
         {name:"数据设置", url:"/setting"},
         {name:"用户列表", url:"/users/list"},
-        {name:"测试页面", url:"/test"}
+        {name:"测试页面", url:"/test"},
+        {name:"Element-Ui", url:"/testEUI"}
     ];
   }
 }
