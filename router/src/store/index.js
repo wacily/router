@@ -8,13 +8,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state:{
+        user:{
+            islogin:false,
+            name:"mahui"
+        },
         message:{
             show:false,
             msg:"",
             ok:true
         },
         settimeout:{
-            alert_settimeout:null
+            alert_settimeout:null,
+            logintime:null
         }
     },
     getters:{

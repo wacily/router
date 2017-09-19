@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store/index'
 
 // 路由初始化时全部加载。
 // import Home from '@/views/home'
@@ -94,13 +95,44 @@ router.beforeEach(function(to,from,next){
   console.log('from : ',from);
   console.log('next : ',next);
 
-  to.matched.some(function(record){
-    console.log('record : ',record);
-    console.log('record.meta.requiresAuth',record.meta.requiresAuth);
-  })
+  var flag = store.state.user.islogin
+  
+  if(!flag){
+    //掉接口，判断当前是否已经登录。
 
-  next();
-  console.log('================beforeEach  end===================>');
+    //如果已经登录 ==》设置用户信息
+    store.commit('login', {name:'用户姓名'});
+
+    //如果没有登录 ==》啥也不做。
+
+  }
+
+  if(store.state.settimeout.logintime && flag){
+    clearTimeout(store.state.settimeout.logintime);
+    store.state.settimeout.logintime = null;
+
+    store.state.settimeout.logintime = setTimeout(function(){
+      store.commit('logout');
+    }, 30 * 60 * 1000)
+  }
+
+  
+
+
+
+  if(!flag && to.path != '/login'){  //如果没有登录 && 没有去登录页面
+    next({path: '/login'});
+  }else{
+    next();
+  }
+
+  // to.matched.some(function(record){
+  //   console.log('record : ',record);
+  //   console.log('record.meta.requiresAuth',record.meta.requiresAuth);
+  // })
+
+  // next();
+  // console.log('================beforeEach  end===================>');
 });
 
 //在 每次每一个路由改变的时候都得执行一遍，即：进入下一个新路由之后
