@@ -69,6 +69,7 @@ Vue.use(Router)
 // })
 
 var router = new Router({
+  mode: 'history',
   routes: [
     { path: '/', name: 'Home', component: Home },
     { path: '/list', name: 'List', component: List },
@@ -106,19 +107,6 @@ router.beforeEach(function(to,from,next){
     //如果没有登录 ==》啥也不做。
 
   }
-
-  if(store.state.settimeout.logintime && flag){
-    clearTimeout(store.state.settimeout.logintime);
-    store.state.settimeout.logintime = null;
-
-    store.state.settimeout.logintime = setTimeout(function(){
-      store.commit('logout');
-    }, 30 * 60 * 1000)
-  }
-
-  
-
-
 
   if(!flag && to.path != '/login'){  //如果没有登录 && 没有去登录页面
     next({path: '/login'});

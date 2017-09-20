@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state:{
         user:{
-            islogin:false,
+            islogin:true,
             name:"mahui"
         },
         message:{
